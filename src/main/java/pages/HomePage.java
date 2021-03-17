@@ -33,6 +33,9 @@ public class HomePage extends BasePage{
     @FindBy(id = "nav-search-submit-button")
     private WebElement searchButton;
 
+    @FindBy(xpath = "//span[@id='nav-link-accountList-nav-line-1'][contains(text(), 'Hello, Artem')]")
+    private WebElement userName;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -90,5 +93,8 @@ public class HomePage extends BasePage{
         return cartCount.getText();
     }
 
+    public boolean userNameVisible(){
+        return userName.isDisplayed();
+    }
 
 }
