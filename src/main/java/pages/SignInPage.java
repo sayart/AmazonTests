@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SignInPage extends BasePage{
+public class SignInPage extends BasePage {
 
     @FindBy(id = "ap_email")
     private WebElement emailField;
@@ -24,6 +24,9 @@ public class SignInPage extends BasePage{
     @FindBy(xpath = "//span[@class='a-list-item'][contains(text(), 'Your password is incorrect')]")
     private WebElement errorMessageWrongPassword;
 
+    @FindBy(id = "createAccountSubmit")
+    private WebElement createAmazonAccount;
+
     public SignInPage(WebDriver driver) {
         super(driver);
     }
@@ -38,22 +41,25 @@ public class SignInPage extends BasePage{
         passwordField.sendKeys(password);
     }
 
-    public void clickContinueButton(){
+    public void clickContinueButton() {
         continueButton.click();
     }
 
-    public void clickSignInButton(){
+    public void clickSignInButton() {
         signInButton.click();
     }
 
-    public boolean errorMessageVisible(){
+    public boolean errorMessageVisible() {
         return errorMessage.isDisplayed();
     }
 
-    public boolean errorMessageVisibleWrongPassword(){
+    public boolean errorMessageVisibleWrongPassword() {
         return errorMessageWrongPassword.isDisplayed();
     }
 
+    public void clickCreateAmazonAccount() {
+        createAmazonAccount.click();
+    }
 
 
 }

@@ -23,6 +23,24 @@ public class RegistrationPage extends BasePage {
     @FindBy(xpath = "//input[@name='code'][contains(@class, cvf-widget-input-code)]")
     private WebElement verifyCodeField;
 
+    @FindBy(xpath = "//span[@class='a-list-item'][contains(text(), 'not include the characters')]")
+    private WebElement errorMessageWrongName;
+
+    @FindBy(xpath = "//div[@class='a-alert-content'][contains(text(), 'Enter a valid email')]")
+    private WebElement errorMessageWrongEmail;
+
+    @FindBy(xpath = "//div[@class='a-alert-content'][contains(text(), 'Enter your name')]")
+    private WebElement allertMessageEnterYourName;
+
+    @FindBy(xpath = "//div[@class='a-alert-content'][contains(text(), 'Enter your email')]")
+    private WebElement allertMessageEnterYourEmail;
+
+    @FindBy(xpath = "//div[@class='a-alert-content'][contains(text(), 'Enter your password')]")
+    private WebElement allertMessageEnterYourPassword;
+
+    @FindBy(xpath = "//div[@id='auth-password-invalid-password-alert']//div[@class='a-alert-content'][contains(text(), 'at least 6 characters')]")
+    private WebElement allertMessageWrongPassword;
+
     public RegistrationPage(WebDriver driver) {
         super(driver);
     }
@@ -47,12 +65,37 @@ public class RegistrationPage extends BasePage {
         checkPasswordField.sendKeys(password);
     }
 
-    public void clickCreateAccountButton(){
+    public void clickCreateAccountButton() {
         createAccountButton.click();
     }
 
-    public void verifyCodeFieldIsDisplayed(){
-        verifyCodeField.isDisplayed();
+    public boolean verifyCodeFieldIsDisplayed() {
+        return verifyCodeField.isDisplayed();
     }
+
+    public boolean verifyErrorMessageWrongNameVisible() {
+        return errorMessageWrongName.isDisplayed();
+    }
+
+    public boolean verifyErrorMessageEnterValidEmailVisible() {
+        return errorMessageWrongEmail.isDisplayed();
+    }
+
+    public boolean verifyAlertMessageEnterYourNameVisible() {
+        return allertMessageEnterYourName.isDisplayed();
+    }
+
+    public boolean verifyAlertMessageEnterYourEmailVisible() {
+        return allertMessageEnterYourEmail.isDisplayed();
+    }
+
+    public boolean verifyAlertMessageEnterYourPasswordVisible() {
+        return allertMessageEnterYourPassword.isDisplayed();
+    }
+
+    public boolean verifyAllertMessageWrongPasswordVisible() {
+        return allertMessageWrongPassword.isDisplayed();
+    }
+
 
 }

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SearchResultPage extends BasePage{
+public class SearchResultPage extends BasePage {
     @FindBy(xpath = "//span[contains(text(), 'TENOC Phone Case')]")
     private WebElement iphoneBumperCase;
 
@@ -12,7 +12,7 @@ public class SearchResultPage extends BasePage{
         super(driver);
     }
 
-    public void clickIphoneBumperCase(){
+    public void clickIphoneBumperCase() {
         iphoneBumperCase.click();
     }
 

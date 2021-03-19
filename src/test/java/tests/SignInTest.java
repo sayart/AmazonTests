@@ -1,6 +1,5 @@
 package tests;
 
-import javafx.scene.control.Alert;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -9,13 +8,13 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-public class SignInTest extends BaseTest{
+public class SignInTest extends BaseTest {
 
     private String INVALID_EMAIL = "slar123t@gmail.com";
     private String INVALID_PASSWORD = "1234567";
 
     @Test(priority = 1)
-    public void checkSingInWithValidDate(){
+    public void checkSingInWithValidDate() {
         getHomePage().clickSignInButton();
         getSignInPage().enterEmailToEmailField(getLoginFromFile());
         getSignInPage().clickContinueButton();
@@ -26,7 +25,7 @@ public class SignInTest extends BaseTest{
     }
 
     @Test(priority = 1)
-    public void checkSignInWithInvalidEmail(){
+    public void checkSignInWithInvalidEmail() {
         getHomePage().clickSignInButton();
         getSignInPage().enterEmailToEmailField(INVALID_EMAIL);
         getSignInPage().clickContinueButton();
@@ -34,7 +33,7 @@ public class SignInTest extends BaseTest{
     }
 
     @Test(priority = 1)
-    public void checkSignInWithInvalidPassword(){
+    public void checkSignInWithInvalidPassword() {
         getHomePage().clickSignInButton();
         getSignInPage().enterEmailToEmailField(getLoginFromFile());
         getSignInPage().clickContinueButton();
@@ -45,7 +44,7 @@ public class SignInTest extends BaseTest{
     }
 
 
-    private String getLoginFromFile(){
+    private String getLoginFromFile() {
         try {
             return new String(Files.readAllBytes(Paths.get("D:\\login.txt")), StandardCharsets.UTF_8);
         } catch (IOException e) {
@@ -54,7 +53,7 @@ public class SignInTest extends BaseTest{
         }
     }
 
-    private String getPasswordFromFile(){
+    private String getPasswordFromFile() {
         try {
             return new String(Files.readAllBytes(Paths.get("D:\\password.txt")), StandardCharsets.UTF_8);
         } catch (IOException e) {

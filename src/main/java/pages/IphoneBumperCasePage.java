@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class IphoneBumperCasePage  extends BasePage{
+public class IphoneBumperCasePage extends BasePage {
 
     @FindBy(id = "add-to-cart-button")
     private WebElement addToCartButton;
@@ -16,7 +16,6 @@ public class IphoneBumperCasePage  extends BasePage{
     public void clickAddToCartButton() {
         addToCartButton.click();
     }
-
 
 
 }
